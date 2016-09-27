@@ -1,0 +1,28 @@
+New log file opened at Tue Apr 12 12:44:53 MDT 2016 by 10860@KylePC
+Taking next connection to: 51127
+New client attempting to connect on port: 51128-51127
+  Address = /128.110.14.97:51127
+This client on port 51128 has uuid 663774db-5722-4bdb-8ba5-2d6175bc94a9 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-663774db-5722-4bdb-8ba5-2d6175bc94a9
+Taking next connection to: 51127
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51127
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51127
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51127
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51127
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51127
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 10860@KylePC logs at Tue Apr 12 13:02:53 MDT 2016, goodbye.

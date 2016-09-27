@@ -1,0 +1,56 @@
+
+#messages {
+    max-height: 250px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+div.message-box{
+    padding: 10px 0px;
+}
+
+div.message-box-me{
+    padding: 10px 0px;
+    background-color: #b6e2ff;
+}
+
+div.message-icon{
+    text-align: center;
+    padding: 2px 5px;
+}
+
+textarea.message{
+    resize:vertical;
+    width:100%;
+}
+
+.btn {
+    margin: 5px;
+}
+.inline {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+.side {
+    width: 20%;
+}
+.middle {
+    width: 60%;
+}
+#hand {
+    text-align: center;
+}
+#error {
+    color: red;
+}
+#Info {
+    color: white;
+}
+.dominion-game {
+    background: #960000;
+}
+.player-btn {
+    max-width: 100px;
+    white-space: normal;
+}

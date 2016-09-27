@@ -1,0 +1,267 @@
+@(message: String)(implicit request: RequestHeader)
+
+@content = {
+<table>
+    <tr class="white-text">
+        <td>connect</td>
+        <td>=</td>
+        <td class="last">(connect <i>name</i>)</td>
+    </tr>
+    <tr class="white-text">
+        <td>choice</td>
+        <td>=</td>
+        <td>(host <i>setup</i>)</td>
+    </tr>
+    <tr class="white-text">
+        <td></td>
+        <td>|</td>
+        <td class="last">(join <i>setup</i>)</td>
+    </tr>
+    <tr class="white-text">
+        <td>setup</td>
+        <td>=</td>
+        <td class="last">((humans <i>number</i>)<br/>(computers <i>number</i>)<br/>(players <i>name</i> ...))</td>
+    </tr>
+    <tr class="white-text">
+        <td>game</td>
+        <td>=</td>
+        <td class="last">(game <i>state</i> ...)</td>
+    </tr>
+    <tr>
+        <td>state</td>
+        <td>=</td>
+        <td class="last">
+            ((players <i>name</i> ...)<br/>
+            (supply <i>card</i> ...)<br/>
+            (trash <i>card</i> ...)<br/>
+
+            (actions <i>number</i>)<br/>
+            (buys <i>number</i>)<br/>
+            (coins <i>number</i>)<br/>
+
+            (deck <i>card</i> ...)<br/>
+            (hand <i>card</i> ...)<br/>
+            (plays <i>card</i> ...)<br/>
+            (discards <i>card</i> ...))
+        </td>
+    </tr>
+    <tr>
+        <td>card</td>
+        <td>=</td>
+        <td><i>treasure</i></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td><i>victory</i></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td class="last"><i>action</i></td>
+    </tr>
+
+    <tr>
+        <td>treasure</td>
+        <td>=</td>
+        <td>copper</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>gold</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td class="last">silver</td>
+    </tr>
+
+    <tr>
+        <td>victory</td>
+        <td>=</td>
+        <td>estate</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>duchy</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td class="last">province</td>
+    </tr>
+
+    <tr>
+        <td>action</td>
+        <td>=</td>
+        <td>mine</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>cellar</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>market</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>remodel</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>smithy</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>village</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>woodcutter</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>workshop</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>militia</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td class="last">moat</td>
+    </tr>
+
+    <tr>
+        <td>play</td>
+        <td>=</td>
+        <td>(act mine <i>treasure</i> <i>treasure</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act cellar <i>card</i> ...)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act market)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act remodel <i>card</i> <i>card</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act smithy)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act village)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act woodcutter)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act workshop <i>card</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act militia)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(act moat)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(add <i>treasure</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(buy <i>card</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(clean)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td class="last">(clean <i>card</i>)</td>
+    </tr>
+    <tr>
+        <td>notification</td>
+        <td>=</td>
+        <td class="white-text">(choose <i>setup</i> ...)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(move <i>state</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(moved <i>name</i> <i>play</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td>(attacked (act militia) <i>name</i> <i>state</i>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td class="last">(defended <i>name</i> <i>defense</i>)</td>
+    </tr>
+
+    <tr>
+        <td>defense</td>
+        <td>=</td>
+        <td>(moat)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>|</td>
+        <td class="last">(discard <i>card</i> ...)</td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>=</td>
+        <td class="last">a sequence of letters</td>
+    </tr>
+    <tr>
+        <td>number</td>
+        <td>=</td>
+        <td>a sequence of decimal digits</td>
+    </tr>
+</table>
+}
+@templates.main("Dominion Data", content = content){
+<script src="@routes.Assets.at(" javascripts/scalajs-example-launcher.js")" type="text/javascript"></script>
+}

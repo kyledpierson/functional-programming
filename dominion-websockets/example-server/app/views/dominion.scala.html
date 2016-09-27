@@ -1,0 +1,16 @@
+@()(implicit request: RequestHeader)
+@import play.api.Play
+
+@header = {
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/dominion.css")" />
+}
+@templates.main("Play Dominion", header = header){
+    <script src="@routes.Assets.at("javascripts/jquery.cookie.js")" type="text/javascript"></script>
+    <script>
+        var settings = {
+            "assetsDir": "@routes.Assets.at("").url",
+            "wsBaseUrl": "@routes.DominionController.dominionWS("").webSocketURL()"
+        }
+        example.DominionJS().main(settings)
+    </script>
+}
